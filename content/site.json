@@ -72,5 +72,15 @@
     "imageAlt": "",
     "video": "",
     "poster": ""
+  },
+  "images": {
+    "philosophy": {
+      "src": "",
+      "alt": ""
+    },
+    "story": {
+      "src": "",
+      "alt": ""
+    }
   }
 }

@@ -222,6 +222,12 @@ collections:
             fields:
               - { name: ga4MeasurementId, label: "GA4 Measurement ID (G-XXXX)", widget: string, required: false }
               - { name: googleSiteVerification, label: "Search Console verification code", widget: string, required: false }
+          - name: images
+            label: Homepage photos
+            widget: object
+            fields:
+              - { name: philosophy, label: "Philosophy section (ingredients close-up)", widget: object, fields: [{ name: src, label: Image, widget: image, required: false }, { name: alt, label: "Alt text", widget: string, required: false }] }
+              - { name: story, label: "Story section (craft / hands)", widget: object, fields: [{ name: src, label: Image, widget: image, required: false }, { name: alt, label: "Alt text", widget: string, required: false }] }
           - name: hero
             label: Homepage hero
             widget: object

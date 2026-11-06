@@ -10,6 +10,7 @@ A fast static site with an editable CMS. It's built as a multi-location restaura
 npm run build      # node build.mjs -> dist/   (no dependencies needed)
 npm run preview    # build and serve at http://localhost:8080
 npm install && npm run images   # optional: responsive WebP versions of photos
+npm run photos     # place photos from photos/ (named per the shot list)
 npm run cms        # local CMS backend; then open http://localhost:8080/admin/
 ```
 
@@ -19,6 +20,9 @@ Node 18+. Deploy `dist/` to Netlify, Cloudflare Pages or Vercel (build command `
 
 - **[docs/HANDOFF.md](docs/HANDOFF.md):** architecture, content model, CMS setup, SEO and analytics, accessibility, testing, ownership, launch phases
 - **[docs/ORDERING.md](docs/ORDERING.md):** ordering integration plan and the embed vs. link recommendation
+- **[docs/PHOTO_SHOT_LIST.md](docs/PHOTO_SHOT_LIST.md):** every photo the site needs, with framing, specs and file names
+- **[docs/CLAUDE_CODE_PLAYBOOK.md](docs/CLAUDE_CODE_PLAYBOOK.md):** copy-and-paste Claude Code prompts from photos to launch day
+- **[CLAUDE.md](CLAUDE.md):** project rules Claude Code follows automatically
 
 ## Project layout
 

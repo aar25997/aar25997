@@ -118,6 +118,9 @@ const components = {
     return `<div class="hero-media photo-slot" role="img" aria-label="Shawarma roasting over heat"><span>Hero photo or video: shawarma over heat</span></div>`;
   },
 
+  philosophyImage: () => picture({ src: site.images?.philosophy?.src, alt: site.images?.philosophy?.alt, label: 'Ingredient close-up: herbs, tahini, vegetables', cls: 'photo-tall', sizes: '(min-width: 860px) 45vw, 100vw' }),
+  storyImage: () => picture({ src: site.images?.story?.src, alt: site.images?.story?.alt, label: 'Craft photo: hands preparing food', cls: 'photo-tall', sizes: '(min-width: 860px) 45vw, 100vw' }),
+
   featuredMenu: () =>
     `<div class="feature-grid">${menu.featured
       .map((f) => `<a class="feature-card" href="${href('menu/')}#${esc(f.category)}">
