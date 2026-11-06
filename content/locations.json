@@ -1,27 +1,60 @@
 {
-  "_help": "One entry per restaurant. Each gets its own page at /locations/<slug>/. status: \"coming-soon\" or \"open\". Hours are only shown when status is \"open\". Leave a field empty if it is not confirmed yet.",
   "locations": [
     {
       "slug": "sterling",
-      "name": "NEFRA Sterling",
-      "city": "Sterling",
-      "region": "VA",
-      "regionName": "Virginia",
+      "name": "NEFRA",
       "status": "coming-soon",
       "openingNote": "We're preparing to open our first restaurant in Sterling, Virginia. Join our list to hear about our opening date first.",
-      "address": "",
-      "postalCode": "",
-      "phone": "",
+      "address": {
+        "street": "",
+        "city": "Sterling",
+        "region": "VA",
+        "regionName": "Virginia",
+        "postalCode": ""
+      },
+      "coordinates": {
+        "lat": null,
+        "lng": null
+      },
+      "googlePlaceId": "",
       "mapsUrl": "",
+      "phone": "",
       "orderUrl": "",
-      "parking": "",
+      "hoursConfirmed": false,
       "hours": [
-        { "days": "Monday – Thursday", "open": "", "close": "" },
-        { "days": "Friday – Saturday", "open": "", "close": "" },
-        { "days": "Sunday", "open": "", "close": "" }
+        {
+          "days": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday"
+          ],
+          "opens": "",
+          "closes": ""
+        },
+        {
+          "days": [
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "",
+          "closes": ""
+        },
+        {
+          "days": [
+            "Sunday"
+          ],
+          "opens": "",
+          "closes": ""
+        }
       ],
+      "parking": "",
       "menuNote": "",
-      "photos": []
+      "photos": [],
+      "seo": {
+        "title": "Mediterranean Restaurant in Sterling, VA: Shawarma & Falafel | NEFRA",
+        "description": "NEFRA in Sterling, Virginia: fast-casual Mediterranean food in Northern Virginia, with beef and chicken shawarma, Egyptian falafel, bowls and plates. Address, hours and directions."
+      }
     }
   ]
 }

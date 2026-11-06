@@ -1,12 +1,13 @@
 ---
 path: /
-jsonld: restaurant
+title: NEFRA | Mediterranean Shawarma & Falafel in Sterling, VA
+description: NEFRA is a premium fast-casual Mediterranean restaurant {{wherePhrase}}. Beef and chicken shawarma, Egyptian falafel, bowls and plates, rooted in tradition and crafted for today.
 ---
 <section class="hero">
   {{hero}}
   <div class="hero-overlay"></div>
   <div class="container hero-content">
-    <p class="eyebrow eyebrow-gold">Premium Mediterranean · Sterling, Virginia</p>
+    <p class="eyebrow eyebrow-light">Mediterranean · Sterling, Virginia</p>
     <h1>Flavors of Civilization</h1>
     <p class="hero-sub">Rooted in tradition. Crafted for today.</p>
     <div class="actions">
@@ -55,7 +56,7 @@ jsonld: restaurant
 <section class="section section-emerald" aria-labelledby="standards-h">
   <div class="container">
     <div class="center narrow">
-      <p class="eyebrow eyebrow-gold">Our Standards</p>
+      <p class="eyebrow eyebrow-light">Our Standards</p>
       <h2 id="standards-h">What We Hold Ourselves To</h2>
     </div>
     <ul class="pillars">
@@ -97,13 +98,9 @@ jsonld: restaurant
         <h2 id="community-h">Follow Along {{instagramHandle}}</h2>
         <p class="muted">Behind the scenes as we build our first restaurant, and the community we're building around it.</p>
       </div>
-      <a class="btn btn-outline" href="{{instagramUrl}}" target="_blank" rel="noopener">Follow on Instagram</a>
+      <a class="btn btn-outline" href="{{instagramUrl}}" target="_blank" rel="noopener" data-track="instagram_click">Follow on Instagram</a>
     </div>
-    <div class="social-grid">
-      <a href="{{instagramUrl}}" target="_blank" rel="noopener" class="photo photo-slot" aria-label="NEFRA on Instagram"><span>Instagram photo</span></a>
-      <a href="{{instagramUrl}}" target="_blank" rel="noopener" class="photo photo-slot" aria-label="NEFRA on Instagram"><span>Instagram photo</span></a>
-      <a href="{{instagramUrl}}" target="_blank" rel="noopener" class="photo photo-slot" aria-label="NEFRA on Instagram"><span>Instagram photo</span></a>
-      <a href="{{instagramUrl}}" target="_blank" rel="noopener" class="photo photo-slot" aria-label="NEFRA on Instagram"><span>Instagram photo</span></a>
-    </div>
+    {{socialGrid}}
+    {{eventsTeaser}}
   </div>
 </section>

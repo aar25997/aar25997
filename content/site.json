@@ -2,31 +2,72 @@
   "name": "NEFRA",
   "tagline": "Flavors of Civilization",
   "subTagline": "Rooted in tradition. Crafted for today.",
-  "description": "NEFRA is a premium fast-casual Mediterranean restaurant inspired by the culinary traditions of ancient civilizations, coming soon to Sterling, Virginia.",
-
-  "_status_help": "Set to \"open\" AND fill in orderUrl to switch every Order Online button on. While \"coming-soon\", buttons point visitors to the email signup instead.",
-  "status": "coming-soon",
-  "orderUrl": "",
-
-  "_siteUrl_help": "Full public address of the site, no trailing slash, e.g. https://www.nefrahouse.com. Needed for canonical links and sitemap.xml.",
+  "description": "Modern fast-casual Mediterranean cuisine rooted in traditional preparation, thoughtful sourcing, and genuine hospitality.",
+  "cuisines": [
+    "Mediterranean",
+    "Middle Eastern",
+    "Egyptian"
+  ],
   "siteUrl": "",
   "basePath": "/",
-
-  "_logo_help": "Path to the official NEFRA wordmark SVG, e.g. /assets/img/nefra-wordmark.svg. Until it is set, a temporary text stand-in is shown.",
   "logo": "",
-
   "email": "",
   "phone": "",
-  "instagram": "nefrahouse",
-
-  "_forms_help": "POST endpoints for a form service (Formspree, Mailchimp, Klaviyo, Netlify Forms...). Leave blank until connected; the forms then explain they are not live yet.",
+  "social": [
+    {
+      "network": "Instagram",
+      "handle": "@nefrahouse",
+      "url": "https://www.instagram.com/nefrahouse/"
+    }
+  ],
+  "navigation": [
+    {
+      "label": "Menu",
+      "path": "/menu/"
+    },
+    {
+      "label": "Our Story",
+      "path": "/our-story/"
+    },
+    {
+      "label": "Our Standards",
+      "path": "/our-standards/"
+    },
+    {
+      "label": "Locations",
+      "path": "/locations/"
+    }
+  ],
+  "footerLinks": [
+    {
+      "label": "Menu",
+      "path": "/menu/"
+    },
+    {
+      "label": "Our Story",
+      "path": "/our-story/"
+    },
+    {
+      "label": "Our Standards",
+      "path": "/our-standards/"
+    },
+    {
+      "label": "Locations",
+      "path": "/locations/"
+    },
+    {
+      "label": "Contact",
+      "path": "/contact/"
+    }
+  ],
   "newsletterEndpoint": "",
   "contactEndpoint": "",
-
-  "cateringAvailable": false,
-
+  "cateringEnabled": false,
+  "analytics": {
+    "ga4MeasurementId": "",
+    "googleSiteVerification": ""
+  },
   "hero": {
-    "_help": "Optional. Set image (and alt) or a muted looping video. Without either, a styled placeholder is shown.",
     "image": "",
     "imageAlt": "",
     "video": "",

@@ -2,71 +2,66 @@
 
 *Flavors of Civilization.* Website for NEFRA, a premium fast-casual Mediterranean restaurant opening in Sterling, Virginia.
 
-A fast static site with no framework and no dependencies. Content lives in JSON files, so menu items, prices, hours and locations can change without touching code.
+A fast static site with an editable CMS. It's built as a multi-location restaurant brand site, not a single landing page.
 
 ## Quick start
 
 ```bash
-npm run build      # or: node build.mjs   -> outputs the site to dist/
-npm run preview    # build + serve at http://localhost:8080
+npm run build      # node build.mjs -> dist/   (no dependencies needed)
+npm run preview    # build and serve at http://localhost:8080
+npm install && npm run images   # optional: responsive WebP versions of photos
+npm run cms        # local CMS backend; then open http://localhost:8080/admin/
 ```
 
-Requires Node 18+. Deploy `dist/` to any static host. On Netlify, Vercel or Cloudflare Pages set the build command to `node build.mjs` and the output directory to `dist`.
+Node 18+. Deploy `dist/` to Netlify, Cloudflare Pages or Vercel (build command `node build.mjs`, output `dist`).
+
+## Docs
+
+- **[docs/HANDOFF.md](docs/HANDOFF.md):** architecture, content model, CMS setup, SEO and analytics, accessibility, testing, ownership, launch phases
+- **[docs/ORDERING.md](docs/ORDERING.md):** ordering integration plan and the embed vs. link recommendation
+
+## Project layout
+
+```
+content/            editable content (what the CMS edits)
+  site.json           settings: contact, social, navigation, footer, analytics, hero
+  ordering.json       ordering provider settings
+  menu.json           categories, items, homepage featured cards
+  locations.json      restaurants (each gets /locations/<slug>/)
+  social.json         curated Instagram posts
+  stories/*.md        brand stories (Our Story, future editorial)
+  events/*.md         events and updates
+src/pages/          page templates (front matter + {{components}})
+src/assets/         CSS, JS, images
+src/admin/          Decap CMS (served at /admin/)
+lib/                build modules: ordering layer, schema.org, images, markdown
+scripts/            image optimizer
+build.mjs           the site generator
+```
 
 ## Pages
 
-| URL | Source |
-| --- | --- |
-| `/` | `src/pages/index.html` |
-| `/menu/` | `src/pages/menu.html` + `content/menu.json` |
-| `/our-story/` | `src/pages/our-story.html` |
-| `/our-standards/` | `src/pages/our-standards.html` |
-| `/locations/` | `src/pages/locations.html` + `content/locations.json` |
-| `/locations/<slug>/` | generated for every entry in `content/locations.json` |
-| `/catering/` | `src/pages/catering.html`, only built when `cateringAvailable` is `true` |
-| `/contact/` | `src/pages/contact.html` |
-| `/privacy-policy/` | `src/pages/privacy-policy.html` |
-| `/404.html` | `src/pages/404.html` |
+`/`, `/menu/`, `/our-story/`, `/our-standards/`, `/locations/`, `/locations/<slug>/`, `/contact/`, `/privacy-policy/`, `/order/` (permanent ordering link), `/events/` (once something is published), `/catering/` (when enabled), `/404.html`.
 
-## Editing content
+## How the site changes at opening
 
-**`content/site.json`**: global settings.
-- `status`: `"coming-soon"` or `"open"`. While coming soon, every Order button becomes *Get Opening Updates* and points to the email signup, and a "Coming soon to Sterling" bar shows at the top. Set `"open"` **and** fill `orderUrl` to turn ordering on everywhere.
-- `siteUrl`: the live domain. It enables canonical links and `sitemap.xml`.
-- `logo`: path to the official wordmark SVG (drop it in `src/assets/img/`).
-- `email`, `phone`, `instagram`: contact details shown on the site.
-- `newsletterEndpoint`, `contactEndpoint`: form service URLs (Mailchimp, Klaviyo, Formspree, etc.). Until set, the forms tell visitors they aren't live yet.
-- `hero.image` / `hero.video`: homepage hero media.
-
-**`content/menu.json`**: featured items for the homepage, plus every category and item. Prices are numbers or `null`. Add `dietary` tags and `allergens` only once they are verified.
-
-**`content/locations.json`**: one entry per restaurant, with its own address, hours, phone, parking, maps link, order link, photos and status. Hours stay hidden until a location's status is `"open"`.
-
-The menu and locations are plain JSON, so they can later be connected to a headless CMS (e.g. Decap, Sanity) or exported from the POS/ordering provider without changing the templates.
+While no location is open, every Order button reads **Get Opening Updates** and points to the email signup, and a "Coming soon to Sterling" bar shows. When a location's status is set to **Open** and it has an ordering link:
+- Order Online appears in the header and on the homepage, the menu (per item) and the location page.
+- A Menu / Order / Directions bar appears at the bottom of the screen on phones.
+- Hours appear once **Hours confirmed** is on.
 
 ## Before launch checklist
 
-- [ ] Add the official NEFRA wordmark SVG and set `logo`. The header currently uses a temporary Cinzel text stand-in, not the approved logo.
-- [ ] Replace the favicon (`src/assets/img/favicon.svg`) with a mark from the official logo.
-- [ ] Add professional photography. Every brown/emerald "photo slot" is a placeholder labeled with the shot it needs (hero, featured dishes, ingredient close-ups, craft, interior, Instagram).
-- [ ] Finalize menu items, prices, allergens and dietary tags in `content/menu.json`.
-- [ ] Have the founder review and personalize the Our Story copy (it is a draft written from the brand brief).
-- [ ] Confirm every claim on Our Standards against real suppliers and recipes. Don't add product-level claims (organic, grass-fed, seed-oil-free, allergen-free) until they are verified.
-- [ ] Connect the newsletter and contact form endpoints.
-- [ ] Add the Sterling address, phone, parking and maps link once confirmed.
-- [ ] Set `siteUrl` and have the privacy policy reviewed.
-- [ ] At opening: set `status: "open"`, `orderUrl`, the location's `status`, and its hours.
+- [ ] Official NEFRA wordmark SVG → **Site settings → Logo** (the header uses a temporary Cinzel text stand-in). Replace `src/assets/img/favicon.svg` too.
+- [ ] Professional photography for every labeled placeholder (hero, featured dishes, philosophy and story images, location, Instagram highlights), with alt text.
+- [ ] Final menu: items, prices, allergens and dietary tags (only verified ones).
+- [ ] Founder review of Our Story (`content/stories/our-story.md` is a draft written from the brief).
+- [ ] Verify every Our Standards commitment against real suppliers and recipes before publishing product-level claims.
+- [ ] Newsletter and contact form endpoints, email address, phone.
+- [ ] Sterling address, coordinates, Google Place ID, parking, then hours and status at opening.
+- [ ] Site URL, Search Console, GA4, Google Business Profile (see HANDOFF.md).
+- [ ] CMS backend repo setting in `src/admin/config.yml`, and privacy policy review.
 
-## Design system
+## Design tokens
 
-| Token | Hex | Use |
-| --- | --- | --- |
-| Deep Emerald | `#0E5A4F` | Primary: navigation, buttons, feature sections |
-| Walnut | `#6B4A32` | Secondary: labels, warmth, storytelling |
-| Matte Charcoal | `#232323` | Text, footer |
-| Antique Gold | `#B08D57` | Accents only: rules, borders, numerals. Not body text on light backgrounds (low contrast) |
-| Warm Stone | `#D7C9B6` | Dividers, light text on dark backgrounds |
-| Warm Ivory | `#F7F4EE` | Main background |
-| Light Sand | `#E9E1D6` | Alternate section background |
-
-Type: **Cinzel** for headings, **DM Sans** for body text, both from Google Fonts.
+Defined at the top of `src/assets/css/site.css`, using the names from the brand brief (`--nefra-emerald`, `--nefra-walnut`, `--nefra-charcoal`, `--nefra-gold`, `--nefra-stone`, `--nefra-ivory`, `--nefra-sand`, `--nefra-white`), plus the typography scale, focus colors, spacing and radius. Type is Cinzel for headings and Inter for body text. Antique Gold is for accents only: it doesn't meet contrast requirements as text on light or emerald backgrounds.
