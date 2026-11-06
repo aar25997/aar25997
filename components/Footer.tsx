@@ -15,11 +15,11 @@ export function Footer() {
 
   return (
     <footer className="on-dark bg-charcoal text-stone">
-      <section id="signup" aria-labelledby="signup-heading" className="border-b border-gold/40 bg-emerald py-16 text-ivory md:py-20">
+      <section id="signup" aria-labelledby="signup-heading" className="pattern-pills border-b border-gold/40 bg-emerald py-16 text-ivory md:py-20">
         <div className="container-site grid items-center gap-10 md:grid-cols-2 md:gap-16">
           <div>
             <span className="eyebrow">{ordering.isLive ? 'Stay in touch' : 'Opening soon'}</span>
-            <h2 id="signup-heading" className="text-[clamp(1.7rem,3vw,2.4rem)] text-ivory">
+            <h2 id="signup-heading" className="text-[clamp(1.7rem,3vw,2.4rem)] text-beige">
               {ordering.isLive ? 'News from the NEFRA Kitchen' : 'Be the First to Know When We Open'}
             </h2>
             <p className="mt-3 max-w-md text-stone">Opening updates, launches, events and offers, straight to your inbox.</p>
@@ -30,8 +30,7 @@ export function Footer() {
 
       <div className="container-site grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr]">
         <div className="sm:col-span-2 lg:col-span-1">
-          <Wordmark logo={site.logo} name={site.name} className="text-[1.9rem]" />
-          <p className="mt-4 font-display text-[0.8rem] uppercase tracking-[0.24em] text-gold">{site.tagline}</p>
+          <Wordmark logo={site.logo} name={site.name} size="lg" />
         </div>
         <nav aria-labelledby="footer-explore" className="flex flex-col gap-2.5">
           <h2 id="footer-explore" className="mb-2 font-sans text-label font-semibold uppercase text-gold">Explore</h2>

@@ -9,7 +9,7 @@ export function SectionHeading({ eyebrow, title, id, className = '', align = 'le
   return (
     <div className={`${align === 'center' ? 'mx-auto text-center' : ''} ${className}`}>
       {eyebrow && <span className="eyebrow">{eyebrow}</span>}
-      <Tag id={id} className={Tag === 'h1' ? 'text-h1' : 'text-h2'}>
+      <Tag id={id} className={`${Tag === 'h1' ? 'text-h1' : 'text-h2'} text-emerald`}>
         {title}
       </Tag>
     </div>

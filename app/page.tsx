@@ -42,10 +42,10 @@ export default function HomePage() {
             <Photo src={home.hero.image} alt={home.hero.imageAlt} label="Hero: shawarma roasting over heat" className="kenburns caption-top h-full w-full" priority />
           )}
         </div>
-        <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(180deg,rgb(35_35_35/0.35)_0%,rgb(35_35_35/0.55)_40%,rgb(20_26_24/0.92)_100%)] md:bg-[linear-gradient(90deg,rgb(20_26_24/0.85)_0%,rgb(20_26_24/0.55)_45%,rgb(35_35_35/0.15)_100%),linear-gradient(180deg,transparent_50%,rgb(20_26_24/0.6)_100%)]" />
+        <div aria-hidden="true" className="absolute inset-0 bg-charcoal/60" />
         <div className="container-site relative pb-16 pt-32 md:pb-24">
           <span className="eyebrow rise">{home.hero.eyebrow}</span>
-          <h1 id="hero-heading" className="rise rise-1 max-w-[12ch] text-display font-normal tracking-[0.05em] text-ivory">{home.hero.headline}</h1>
+          <h1 id="hero-heading" className="rise rise-1 max-w-[12ch] text-display tracking-[0.04em] text-beige">{home.hero.headline}</h1>
           <p className="rise rise-2 mt-5 font-display text-[clamp(1.1rem,2.2vw,1.55rem)] tracking-[0.06em] text-stone">{home.hero.subheadline}</p>
           <p className="rise rise-3 mt-5 max-w-xl text-[1.08rem] text-ivory/90">{home.hero.copy}</p>
           <div className="rise rise-4 mt-9 flex flex-wrap gap-3">
@@ -56,6 +56,11 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Brand band: the tagline set like the brand guidelines' website layout (static, decorative) */}
+      <div aria-hidden="true" className="pattern-pills-gold overflow-hidden whitespace-nowrap border-y border-gold/50 bg-burgundy py-4 font-display text-[0.95rem] uppercase tracking-[0.22em] text-gold">
+        {Array.from({ length: 8 }, () => `${home.hero.headline} · ${home.hero.subheadline.replace(/\.$/, '')} · `).join('')}
+      </div>
+
       {/* 3 — Introduction */}
       <section className="py-section" aria-labelledby="intro-heading">
         <div className="container-site grid items-center gap-12 md:grid-cols-[1fr_1.05fr] md:gap-20">
@@ -64,7 +69,7 @@ export default function HomePage() {
             <SectionHeading eyebrow={home.intro.eyebrow} title={home.intro.headline} id="intro-heading" />
             <p className="mt-6 max-w-xl text-lead text-muted">{home.intro.body}</p>
           </div>
-          <div data-reveal className="aspect-[4/5] max-w-full overflow-hidden rounded-card">
+          <div data-reveal className="frame-gold aspect-[4/5] max-w-full overflow-hidden rounded-card">
             <Photo src={home.intro.image} alt={home.intro.imageAlt} label="Editorial: the NEFRA table" className="h-full w-full" sizes="(min-width: 864px) 50vw, 100vw" />
           </div>
         </div>
@@ -102,10 +107,10 @@ export default function HomePage() {
           <Photo src={home.philosophy.image} alt={home.philosophy.imageAlt} label="Ingredient close-up: herbs, tahini, vegetables" className="caption-top h-full w-full" />
         </div>
         <div className="container-site">
-          <div data-reveal className="relative -mt-20 ml-auto max-w-xl rounded-card bg-ivory p-8 shadow-[0_30px_60px_-40px_rgb(35_35_35/0.6)] sm:-mt-28 sm:p-12 lg:-mt-40">
+          <div data-reveal className="on-dark relative -mt-20 ml-auto max-w-xl rounded-card border border-gold/60 bg-burgundy p-8 shadow-[0_30px_60px_-40px_rgb(35_35_35/0.6)] sm:-mt-28 sm:p-12 lg:-mt-40">
             <span className="rule-gold mb-6" aria-hidden="true" />
-            <SectionHeading eyebrow={home.philosophy.eyebrow} title={home.philosophy.headline} id="philosophy-heading" />
-            <p className="mt-5 text-lead text-muted">{home.philosophy.body}</p>
+            <SectionHeading eyebrow={home.philosophy.eyebrow} title={home.philosophy.headline} id="philosophy-heading" className="[&_.eyebrow]:text-gold [&_h2]:text-gold" />
+            <p className="mt-5 text-lead text-stone">{home.philosophy.body}</p>
             <a href="/our-standards/" className="link-arrow mt-7">How we prepare our food</a>
           </div>
         </div>
@@ -113,9 +118,9 @@ export default function HomePage() {
       </section>
 
       {/* 6 — Standards */}
-      <section className="on-dark bg-emerald py-section text-ivory" aria-labelledby="standards-heading">
+      <section className="on-dark pattern-pills bg-emerald py-section text-ivory" aria-labelledby="standards-heading">
         <div className="container-site">
-          <SectionHeading eyebrow={home.standards.eyebrow} title={home.standards.headline} id="standards-heading" align="center" className="max-w-2xl [&_h2]:text-ivory" />
+          <SectionHeading eyebrow={home.standards.eyebrow} title={home.standards.headline} id="standards-heading" align="center" className="max-w-2xl [&_h2]:text-beige" />
           <ul className="my-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
             {home.standards.pillars.map((p) => (
               <li key={p.title} data-reveal className="lg:border-l lg:border-gold/45 lg:px-8 lg:first:border-l-0 lg:first:pl-0">
@@ -134,7 +139,7 @@ export default function HomePage() {
       {/* 7 — Our Story */}
       <section className="py-section" aria-labelledby="story-heading">
         <div className="container-site grid items-center gap-12 md:grid-cols-[1.05fr_1fr] md:gap-20">
-          <div data-reveal className="aspect-[4/5] max-w-full overflow-hidden rounded-card">
+          <div data-reveal className="frame-gold aspect-[4/5] max-w-full overflow-hidden rounded-card">
             <Photo src={home.story.image} alt={home.story.imageAlt} label="Craft: hands preparing food" className="h-full w-full" sizes="(min-width: 864px) 50vw, 100vw" />
           </div>
           <div data-reveal>
@@ -154,7 +159,7 @@ export default function HomePage() {
           <div className="container-site grid items-center gap-12 md:grid-cols-[1.1fr_1fr] md:gap-16">
             <div data-reveal>
               <span className="eyebrow eyebrow-gold">{home.location.eyebrow}</span>
-              <h2 id="location-heading" className="text-h2 text-ivory">{home.location.headline}</h2>
+              <h2 id="location-heading" className="text-h2 text-gold">{home.location.headline}</h2>
               <p className="mt-5 inline-flex items-center gap-2 rounded-pill border border-gold/70 px-4 py-1.5 text-[0.75rem] font-semibold uppercase tracking-[0.16em] text-stone">
                 <span className={`h-2 w-2 rounded-full ${loc.status === 'open' ? 'bg-stone' : 'bg-gold'}`} aria-hidden="true" />
                 {loc.status === 'open' ? statusLabel(loc) : `Coming soon to ${cityLine(loc)}`}
@@ -185,7 +190,7 @@ export default function HomePage() {
                 </div>
               )}
             </div>
-            <div data-reveal className="aspect-square max-w-full overflow-hidden rounded-card">
+            <div data-reveal className="frame-gold aspect-square max-w-full overflow-hidden rounded-card">
               <Photo src={loc.photos[0]?.src} alt={loc.photos[0]?.alt} label={`NEFRA ${loc.address.city} restaurant`} className="h-full w-full" sizes="(min-width: 864px) 45vw, 100vw" />
             </div>
           </div>

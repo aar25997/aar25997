@@ -1,15 +1,26 @@
 /**
- * NEFRA wordmark. Until the official SVG is set in content/site.json (logo), a
- * temporary text stand-in is shown. Do not treat the stand-in as the logo.
+ * The official NEFRA logo (wordmark + "Flavors Of Civilization"), extracted as
+ * vector art from the NEFRA Brand Guidelines. Brand rules: gold on dark
+ * backgrounds, charcoal on gold/light backgrounds; never recolored, outlined,
+ * rotated, stretched or given effects; never smaller than 100px wide / 28px high.
+ * Files: public/brand/nefra-logo-gold.svg, public/brand/nefra-logo-charcoal.svg
  */
-export function Wordmark({ logo, name, className = '' }: { logo: string; name: string; className?: string }) {
+const RATIO = 1155 / 333; // viewBox of the extracted artwork
+
+export function Wordmark({ logo, name, size = 'md', className = '' }: { logo: string; name: string; size?: 'md' | 'lg'; className?: string }) {
+  const h = size === 'lg' ? 56 : 44;
   if (logo) {
-    // eslint-disable-next-line @next/next/no-img-element
-    return <img src={logo} alt={name} width={160} height={36} className={`h-8 w-auto md:h-9 ${className}`} />;
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src={logo}
+        alt={`${name}, Flavors Of Civilization`}
+        width={Math.round(h * RATIO)}
+        height={h}
+        className={`${size === 'lg' ? 'h-14' : 'h-10 md:h-11'} w-auto ${className}`}
+      />
+    );
   }
-  return (
-    <span className={`font-display text-[1.65rem] font-semibold tracking-[0.34em] text-ivory ${className}`} data-placeholder="logo">
-      {name}
-    </span>
-  );
+  // Fallback only if the logo file is removed from settings.
+  return <span className={`font-display text-[1.65rem] font-semibold tracking-[0.2em] text-gold ${className}`} data-placeholder="logo">{name}</span>;
 }

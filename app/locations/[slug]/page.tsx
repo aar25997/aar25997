@@ -32,10 +32,10 @@ export default async function LocationPage({ params }: { params: Promise<{ slug:
   return (
     <>
       <JsonLd data={[schema.restaurant(loc), schema.breadcrumbs([['Home', '/'], ['Locations', '/locations/'], [loc.address.city, `/locations/${loc.slug}/`]])]} />
-      <section className="on-dark bg-emerald text-ivory">
+      <section className="on-dark pattern-pills bg-emerald text-ivory">
         <div className="container-site pb-16 pt-16 md:pb-20 md:pt-24">
           <p className="eyebrow rise"><a href="/locations/" className="text-stone underline-offset-4">Locations</a> · {statusLabel(loc)}</p>
-          <h1 className="rise rise-1 max-w-3xl text-h1 text-ivory">{loc.status === 'open' ? `NEFRA ${loc.address.city}` : `Coming Soon to ${cityLine(loc)}`}</h1>
+          <h1 className="rise rise-1 max-w-3xl text-h1 text-beige">{loc.status === 'open' ? `NEFRA ${loc.address.city}` : `Coming Soon to ${cityLine(loc)}`}</h1>
           <p className="rise rise-2 mt-6 max-w-2xl text-lead text-stone">
             {loc.status === 'open' ? `Shawarma, Egyptian falafel and Mediterranean bowls in ${cityLine(loc)}.` : loc.openingNote}
           </p>

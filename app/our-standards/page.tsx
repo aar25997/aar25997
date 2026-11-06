@@ -39,7 +39,7 @@ export default function StandardsPage() {
               <li key={i.id} id={i.id} data-reveal className="grid gap-4 border-t border-walnut/25 py-10 md:grid-cols-[14rem_1fr] md:gap-10">
                 <div>
                   <span className="mb-4 block h-px w-10 bg-gold" aria-hidden="true" />
-                  <h2 className="text-[clamp(1.35rem,2.4vw,1.75rem)]">{i.title}</h2>
+                  <h2 className="text-[clamp(1.35rem,2.4vw,1.75rem)] text-emerald">{i.title}</h2>
                   <p className={`mt-3 inline-block rounded-pill px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.12em] ${i.status === 'in-progress' ? 'bg-ivory text-walnut' : 'bg-emerald text-ivory'}`}>
                     {statusText[i.status]}
                   </p>
@@ -54,7 +54,7 @@ export default function StandardsPage() {
 
       <section className="py-section">
         <div className="container-site text-center">
-          <h2 className="text-h2">Questions About Our Food?</h2>
+          <h2 className="text-h2 text-emerald">Questions About Our Food?</h2>
           <p className="mx-auto mt-4 max-w-lg text-muted">We're happy to talk about sourcing, preparation or allergens.</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a href="/contact/" className="btn btn-primary">Contact Us</a>

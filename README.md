@@ -69,7 +69,7 @@ While no location is open, ordering buttons read **Get Opening Updates** and poi
 
 ## Before launch checklist
 
-- [ ] Official NEFRA wordmark SVG → `content/site.json` `logo`. The header uses a temporary text stand-in, marked `data-placeholder="logo"`. Replace `public/favicon.svg` too.
+- [x] Official NEFRA logo: extracted as vector art from the brand guidelines into `public/brand/` (gold + charcoal) and in use. The favicon uses the logo's "N". Ask the designer for master SVG/AI files to confirm it matches exactly.
 - [ ] Professional photography for every placeholder. Search the built HTML for `data-placeholder="photo"`.
 - [ ] Final menu: approve items, add prices, verified allergens and dietary tags, then set `showDraftItems` to false.
 - [ ] Founder review of Our Story (`content/stories/our-story.md` is a draft).

@@ -75,7 +75,7 @@ export function MenuBrowser({ categories, items }: { categories: MenuCategory[];
           return (
             <section key={c.id} id={c.id} aria-labelledby={`${c.id}-h`} hidden={active !== 'all' && active !== c.id} className="border-b border-stone py-12 last:border-b-0">
               <header className="mb-8 flex flex-wrap items-baseline justify-between gap-3">
-                <h2 id={`${c.id}-h`} className="text-h2">{c.name}</h2>
+                <h2 id={`${c.id}-h`} className="text-h2 text-emerald">{c.name}</h2>
                 {c.description && <p className="text-muted">{c.description}</p>}
               </header>
               {list.length ? (

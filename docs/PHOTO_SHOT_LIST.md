@@ -6,7 +6,7 @@ This lists every photo the website uses: where it appears, what to shoot, and th
 
 - **Show:** fire and craft, real ingredients, warm materials, and people sharing food. Shawarma on the spit, falafel coming out of the fryer, herbs, tahini, bread, hands at work.
 - **Light:** natural-looking, warm, directional (window light or the glow of the grill). Rich but realistic color. No harsh flash and no flat, overlit catalog look.
-- **Surfaces and props:** walnut wood, warm stone, matte charcoal, small brushed-brass details, deep green ceramics or linens. These echo the brand palette, so photos and site feel like one place.
+- **Surfaces and props:** walnut wood, warm stone, matte charcoal, small brushed-brass details, deep emerald and burgundy ceramics, linens and NEFRA packaging (see the Applications section of the brand guidelines). These echo the brand palette, so photos and site feel like one place.
 - **Food styling:** real portions as served, slightly imperfect, steam and texture visible. Fresh garnishes, not piled-on decoration.
 - **Avoid:** stock photos, AI-generated food images, pyramids, pharaohs and other Egyptian clichés, "wellness" imagery (measuring tapes, green smoothies), heavy filters, and anything that doesn't match what NEFRA actually serves.
 - **People:** get a signed model release from everyone recognizable, staff included.

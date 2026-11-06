@@ -1,28 +1,37 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   NEFRA design system
-   Layout concept: an editorial restaurant site. Full-bleed photography,
-   generous ivory space, emerald bands for brand moments, charcoal for
-   evening and visit content; gold appears only as hairlines and small details.
+   NEFRA design system, following the NEFRA Brand Guidelines (2026)
+   - Palette: Emerald Green, Burgundy, Beige, Gold, Brown, Charcoal Black,
+     with Ivory/Sand/Stone/White as supporting neutrals.
+   - Typography: Cinzel (main typeface) + Poppins (secondary typeface).
+   - Logo: official wordmark only, in gold (on dark) or charcoal (on gold/light).
+   - Elements: the pill pattern built from the logo's "O"; square image frames.
+   - Do not use gradients or unapproved colours (brand guidelines, Color Misuse).
 
-   Palette distribution target: 40% ivory, 30% emerald, 15% charcoal,
-   10% stone, 5% gold.
+   Layout concept: editorial restaurant site. Full-bleed photography, generous
+   ivory space, emerald and burgundy brand bands with the pill pattern, charcoal
+   for evening/visit content, gold for hairlines, frames and headings on dark.
 
-   Contrast (WCAG 2.2 AA): charcoal/ivory 14.3, muted/ivory 6.6, walnut/ivory 7.2,
-   emerald/ivory 7.4, stone/emerald 5.0, gold/charcoal 5.1.
-   Gold FAILS as text on ivory (2.8) and emerald (2.6), so it is decoration only
-   there. Text in gold is allowed on charcoal only.
+   Contrast (WCAG 2.2 AA):
+   charcoal/ivory 14.3, emerald/ivory 7.4, burgundy/ivory 16.0, muted/ivory 6.6,
+   stone/emerald 5.0, stone/burgundy 10.8,
+   gold/burgundy 5.7 and gold/charcoal 5.1 -> gold text OK on burgundy & charcoal,
+   beige/emerald 3.5 -> beige headings on emerald at large sizes only (>= 24px),
+   gold/emerald 2.6 and gold/ivory 2.8 -> FAIL: gold is never text there
+   (the logo itself is exempt as a logotype).
    ========================================================================== */
 
 @theme {
-  /* Only NEFRA colors exist as utilities (bg-emerald, text-walnut...). */
+  /* Only NEFRA colors exist as utilities (bg-emerald, text-burgundy...). */
   --color-*: initial;
   --color-emerald: #0E5A4F;
   --color-emerald-deep: #0A463D;
-  --color-walnut: #6B4A32;
-  --color-charcoal: #232323;
+  --color-burgundy: #3B0014;
+  --color-beige: #C8A76A;
   --color-gold: #B08D57;
+  --color-walnut: #6B4A32; /* "Brown" in the brand guidelines */
+  --color-charcoal: #232323;
   --color-stone: #D7C9B6;
   --color-ivory: #F7F4EE;
   --color-sand: #E9E1D6;
@@ -51,7 +60,7 @@
   --spacing-gutter: clamp(1rem, 4vw, 2.5rem);
   --container-site: 75rem;
   --container-prose: 42rem;
-  --radius-card: 0.5rem;
+  --radius-card: 0.125rem; /* the brand favors square shapes */
   --radius-pill: 999px;
   --ease-brand: cubic-bezier(0.2, 0.7, 0.2, 1);
 
@@ -63,7 +72,7 @@
    are applied (inline = utilities use var(--font-cinzel) directly). */
 @theme inline {
   --font-display: var(--font-cinzel), "Trajan Pro", Georgia, serif;
-  --font-sans: var(--font-inter), Arial, sans-serif;
+  --font-sans: var(--font-poppins), Arial, sans-serif;
 }
 
 /* ---------- Base ---------- */
@@ -83,7 +92,7 @@
   }
   h1, h2, h3 {
     @apply font-display;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.02em;
     line-height: 1.15;
     text-wrap: balance;
@@ -108,19 +117,20 @@
   /* Small uppercase label above headings */
   .eyebrow { @apply mb-4 block font-sans text-label font-semibold uppercase text-walnut; }
   .on-dark .eyebrow { @apply text-stone; }
-  .eyebrow-gold { @apply text-gold; } /* charcoal backgrounds only */
+  .eyebrow-gold { @apply text-gold; } /* charcoal and burgundy backgrounds only */
 
   /* Thin gold rule used to open sections */
   .rule-gold { @apply block h-px w-12 bg-gold; }
 
   /* Buttons: 48px tall touch targets */
   .btn {
-    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-card border px-6 font-sans text-[0.8rem] font-semibold uppercase tracking-[0.14em] no-underline transition duration-300 ease-brand;
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-pill border px-7 font-sans text-[0.8rem] font-semibold uppercase tracking-[0.14em] no-underline transition duration-300 ease-brand;
   }
   .btn:hover { transform: translateY(-1px); }
   .btn-primary { @apply border-emerald bg-emerald text-ivory hover:border-emerald-deep hover:bg-emerald-deep; }
   .btn-outline { @apply border-emerald bg-transparent text-emerald hover:bg-emerald hover:text-ivory; }
   .btn-light { @apply border-ivory bg-ivory text-emerald hover:border-white hover:bg-white; }
+  .btn-gold { @apply border-gold bg-gold text-charcoal hover:border-beige hover:bg-beige; } /* on charcoal/burgundy (charcoal on gold 5.1) */
   .btn-outline-light { @apply border-ivory/60 bg-transparent text-ivory hover:border-ivory hover:bg-ivory/10; }
   .btn-sm { @apply min-h-10 px-4 text-[0.72rem]; }
 
@@ -132,16 +142,29 @@
   .link-arrow:hover::after { transform: translateX(4px); }
   .on-dark .link-arrow { @apply text-ivory hover:text-stone; }
 
+  /* Brand pattern: rows of pills derived from the "O" in the NEFRA logo. */
+  .pattern-pills, .photo-placeholder {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='160'%3E%3Crect x='7' y='7' width='50' height='146' rx='25' fill='%23ffffff' fill-opacity='0.045'/%3E%3C/svg%3E");
+    background-size: 64px 160px;
+  }
+  .pattern-pills-gold {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='160'%3E%3Crect x='7' y='7' width='50' height='146' rx='25' fill='none' stroke='%23B08D57' stroke-opacity='0.4' stroke-width='1.5'/%3E%3Cpath d='M32 0v7M32 153v7' stroke='%23B08D57' stroke-opacity='0.4' stroke-width='1.5'/%3E%3C/svg%3E");
+    background-size: 64px 160px;
+  }
+  @media (max-width: 40rem) {
+    .pattern-pills, .pattern-pills-gold, .photo-placeholder { background-size: 44px 110px; }
+  }
+
+  /* Gold hairline frame for images, as in the brand layouts */
+  .frame-gold { @apply relative; }
+  .frame-gold::after { content: ""; position: absolute; inset: 10px; border: 1px solid var(--color-gold); pointer-events: none; }
+
   /* Photo placeholder: marks every spot that still needs real NEFRA photography.
      Search the code for data-placeholder="photo" to find them all. */
   .photo-placeholder {
-    @apply relative flex items-end overflow-hidden text-ivory/80;
-    background:
-      radial-gradient(120% 80% at 20% 10%, rgb(176 141 87 / 0.35), transparent 55%),
-      radial-gradient(90% 70% at 90% 100%, rgb(14 90 79 / 0.55), transparent 60%),
-      linear-gradient(160deg, #7A5639 0%, #4E3524 45%, #1E2B27 100%);
+    @apply relative flex items-end overflow-hidden bg-emerald text-stone;
   }
-  .photo-placeholder::before { content: ""; position: absolute; inset: 12px; border: 1px solid rgb(176 141 87 / 0.45); pointer-events: none; }
+  .photo-placeholder::before { content: ""; position: absolute; inset: 12px; border: 1px solid rgb(176 141 87 / 0.6); pointer-events: none; }
   .photo-placeholder > span { @apply relative m-6 text-[0.68rem] uppercase tracking-[0.18em]; }
   .photo-placeholder.caption-top { @apply items-start justify-end; }
 
@@ -152,7 +175,7 @@
   .prose-nefra h3 { @apply mt-8 mb-3 text-h3; }
   .prose-nefra a { @apply text-emerald underline underline-offset-4; }
   .prose-nefra ul { @apply mb-5 list-disc pl-6 text-muted; }
-  .prose-nefra blockquote { @apply my-10 border-y border-gold py-8 text-center font-display text-[clamp(1.25rem,2.4vw,1.6rem)] text-walnut; }
+  .prose-nefra blockquote { @apply my-10 border-y border-gold py-8 text-center font-display text-[clamp(1.25rem,2.4vw,1.6rem)] text-burgundy; }
 
   /* Form fields */
   .field-label { @apply mb-2 block text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-walnut; }

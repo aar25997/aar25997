@@ -15,6 +15,10 @@
 
 Why Next.js rather than Webflow or WordPress: the master brief asks for Next.js, TypeScript and Tailwind, and it gives a component system that can grow with the brand. It can later move to server rendering (for example, a server-side email API or live POS menu sync) without a rewrite. The cost of that choice is that **layout changes need a developer**. Day-to-day content (menu, prices, hours, photos, stories, events, ordering links) doesn't, because it goes through the CMS.
 
+## Brand guidelines
+
+The site follows the NEFRA Brand Guidelines (2026): the official logo in gold or charcoal (vector files in `public/brand/`), the six-color palette (Emerald, Burgundy, Beige, Gold, Brown, Charcoal) with ivory neutrals, Cinzel + Poppins, the pill pattern from the logo's "O", square framed images, and no gradients. Where the guidelines' mockups put gold text on emerald, the site uses Beige at large sizes instead, because gold on emerald (2.6:1) fails WCAG AA contrast. Logos are exempt from that rule, so the gold logo stays as designed.
+
 ## Content model (editable collections)
 
 | Collection | File | Fields |

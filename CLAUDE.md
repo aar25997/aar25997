@@ -19,14 +19,18 @@ Stack: Next.js 16 App Router + TypeScript + Tailwind CSS v4, static export (`out
 - Structured data: `lib/schema.ts`. Page metadata: `pageMetadata()` in `lib/site.ts`.
 - Images: use `<Photo>` (server) or `<Picture>` (client-safe). With no image they render a placeholder marked `data-placeholder="photo"`. Never fill a slot with stock or AI imagery presented as NEFRA's own.
 - Future pages (events, catering, gift cards, rewards) are gated by `content/site.json` → `features` via `lib/features.ts`. Don't link them while off.
-- Design tokens: the `@theme` block in `app/globals.css`. The Tailwind color palette is reset to NEFRA colors only (`bg-emerald`, `text-walnut`, `border-gold`...). Shared classes: `.btn`, `.btn-primary`, `.btn-outline`, `.btn-light`, `.btn-outline-light`, `.eyebrow`, `.link-arrow`, `.rule-gold`, `.container-site`, `.prose-nefra`, `.field-input`. Use `.on-dark` on dark sections so focus rings and links switch to light.
+- Design tokens: the `@theme` block in `app/globals.css`. The Tailwind color palette is reset to NEFRA colors only (`bg-emerald`, `bg-burgundy`, `text-beige`, `border-gold`...). Shared classes: `.btn`, `.btn-primary`, `.btn-outline`, `.btn-light`, `.btn-gold`, `.btn-outline-light`, `.eyebrow`, `.link-arrow`, `.rule-gold`, `.frame-gold`, `.pattern-pills`, `.pattern-pills-gold`, `.container-site`, `.prose-nefra`, `.field-input`. Use `.on-dark` on dark sections so focus rings and links switch to light.
 
-## Brand rules (from NEFRA's brief)
-- Palette: Deep Emerald #0E5A4F (primary), Walnut #6B4A32, Matte Charcoal #232323, Antique Gold #B08D57 (accent, about 5%), Warm Stone #D7C9B6; neutrals Ivory #F7F4EE, Sand #E9E1D6, White.
-- **Antique Gold must never be text on ivory, sand or emerald** (fails contrast). Use it for hairlines, borders and dots, or as text on charcoal only.
-- Type: Cinzel (`font-display`) for headings, Inter (`font-sans`) for everything else.
+## Brand rules (NEFRA Brand Guidelines 2026 + the website brief)
+The brand guidelines are the authority: follow them strictly, no personal-preference adjustments.
+- Palette: Emerald Green #0E5A4F (primary), Burgundy #3B0014, Beige #C8A76A, Gold #B08D57, Brown #6B4A32 (`walnut`), Charcoal Black #232323; supporting neutrals Ivory #F7F4EE, Sand #E9E1D6, Stone #D7C9B6, White. No other colors.
+- **No gradients** (brand guidelines, Color Misuse). Use flat colors and flat photo overlays.
+- **Gold text:** allowed on burgundy (5.7:1) and charcoal (5.1:1). On emerald use **beige**, and only for large headings (3.5:1). Gold is never text on ivory, sand or emerald.
+- Type: Cinzel (`font-display`, main typeface, headings at weight 600) and Poppins (`font-sans`, secondary typeface) for everything else.
+- **Logo:** only the official artwork in `public/brand/` (gold on dark, charcoal on gold/light). Never recreate it in live text, recolor, outline, rotate, stretch or add effects. Minimum 100px wide / 28px high; keep clear space around it.
+- Brand pattern: the pill shapes from the logo's "O" (`.pattern-pills` tone-on-tone on emerald, `.pattern-pills-gold` outline on burgundy). Square image frames with a gold hairline (`.frame-gold`). Pill-shaped buttons.
 - Feel: timeless, premium without pretension, earthy, modern, authentic, welcoming. Heritage through type, color and story, never pyramids, pharaohs or ornate "ancient" graphics. NEFRA is Mediterranean with Egyptian influence, not "an Egyptian restaurant".
-- Use the official wordmark SVG for the logo once provided. Never invent a logo or symbol.
+- Never invent a logo, symbol or new brand color.
 - Motion: subtle fades and rises only (`data-reveal`, `.rise`). No parallax, autoplaying audio or popups. Respect `prefers-reduced-motion`.
 
 ## Content rules: do not break these

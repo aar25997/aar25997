@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Cinzel, Inter } from 'next/font/google';
+import { Cinzel, Poppins } from 'next/font/google';
 import Script from 'next/script';
 import { BottomBar } from '@/components/BottomBar';
 import { Footer } from '@/components/Footer';
@@ -10,8 +10,9 @@ import { getContext } from '@/lib/site';
 import './globals.css';
 
 // Self-hosted at build time by next/font: no request to Google from visitors.
-const cinzel = Cinzel({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-cinzel', display: 'swap' });
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
+// Brand typefaces (NEFRA Brand Guidelines): Cinzel = main, Poppins = secondary.
+const cinzel = Cinzel({ subsets: ['latin'], weight: ['400', '500', '600', '700'], variable: '--font-cinzel', display: 'swap' });
+const poppins = Poppins({ subsets: ['latin'], weight: ['400', '500', '600', '700'], variable: '--font-poppins', display: 'swap' });
 
 export function generateMetadata(): Metadata {
   const { site } = getContext();
@@ -30,7 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const { site, ordering } = getContext();
   const ga = site.analytics.ga4MeasurementId;
   return (
-    <html lang="en" className={`${cinzel.variable} ${inter.variable}`}>
+    <html lang="en" className={`${cinzel.variable} ${poppins.variable}`}>
       <body className={ordering.isLive ? 'has-bottom-bar' : ''}>
         <a href="#main" className="sr-only z-[100] bg-charcoal px-4 py-2 text-ivory focus:not-sr-only focus:fixed focus:left-2 focus:top-2">
           Skip to content
