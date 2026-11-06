@@ -1,0 +1,27 @@
+{
+  "_help": "One entry per restaurant. Each gets its own page at /locations/<slug>/. status: \"coming-soon\" or \"open\". Hours are only shown when status is \"open\". Leave a field empty if it is not confirmed yet.",
+  "locations": [
+    {
+      "slug": "sterling",
+      "name": "NEFRA Sterling",
+      "city": "Sterling",
+      "region": "VA",
+      "regionName": "Virginia",
+      "status": "coming-soon",
+      "openingNote": "We're preparing to open our first restaurant in Sterling, Virginia. Join our list to hear about our opening date first.",
+      "address": "",
+      "postalCode": "",
+      "phone": "",
+      "mapsUrl": "",
+      "orderUrl": "",
+      "parking": "",
+      "hours": [
+        { "days": "Monday – Thursday", "open": "", "close": "" },
+        { "days": "Friday – Saturday", "open": "", "close": "" },
+        { "days": "Sunday", "open": "", "close": "" }
+      ],
+      "menuNote": "",
+      "photos": []
+    }
+  ]
+}

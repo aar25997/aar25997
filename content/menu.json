@@ -1,0 +1,62 @@
+{
+  "_help": "Edit this file to change the menu. Prices are numbers (e.g. 13.5) or null for 'coming soon'. Only add dietary tags (e.g. \"Vegetarian\") and allergens once they are verified for the actual recipe. 'image' is a path like /assets/img/menu/beef-shawarma.jpg.",
+
+  "disclaimer": "Please tell our team about any food allergies before ordering. Our food is prepared in a shared kitchen, so we cannot guarantee that any item is free of allergens. Full allergen and dietary information will be published here once our menu is finalized.",
+
+  "featured": [
+    {
+      "title": "Beef Shawarma",
+      "description": "Seasoned beef, slow-roasted on the vertical spit and carved to order.",
+      "category": "shawarma",
+      "image": "",
+      "imageLabel": "Beef shawarma carved from the spit"
+    },
+    {
+      "title": "Chicken Shawarma",
+      "description": "Marinated chicken roasted over steady heat until the edges caramelize.",
+      "category": "shawarma",
+      "image": "",
+      "imageLabel": "Chicken shawarma over heat"
+    },
+    {
+      "title": "Egyptian Falafel",
+      "description": "Our take on the falafel of Egyptian kitchens, fried fresh throughout the day.",
+      "category": "falafel",
+      "image": "",
+      "imageLabel": "Fresh Egyptian falafel and herbs"
+    },
+    {
+      "title": "Bowls & Plates",
+      "description": "Build a full meal around your choice of protein, fresh sides and sauces.",
+      "category": "bowls",
+      "image": "",
+      "imageLabel": "A plated bowl with tahini"
+    }
+  ],
+
+  "categories": [
+    {
+      "id": "shawarma",
+      "name": "Shawarma",
+      "blurb": "Carved fresh from the spit, wrapped or plated.",
+      "items": [
+        { "name": "Beef Shawarma", "description": "Seasoned beef, slow-roasted on the vertical spit and carved to order.", "price": null, "image": "", "dietary": [], "allergens": [], "orderable": true },
+        { "name": "Chicken Shawarma", "description": "Marinated chicken roasted over steady heat until the edges caramelize.", "price": null, "image": "", "dietary": [], "allergens": [], "orderable": true }
+      ]
+    },
+    {
+      "id": "falafel",
+      "name": "Falafel",
+      "blurb": "Inspired by the falafel of Egyptian kitchens.",
+      "items": [
+        { "name": "Egyptian Falafel", "description": "Our take on the falafel of Egyptian kitchens, fried fresh throughout the day.", "price": null, "image": "", "dietary": [], "allergens": [], "orderable": true }
+      ]
+    },
+    { "id": "bowls", "name": "Bowls & Plates", "blurb": "A complete meal, built your way.", "items": [] },
+    { "id": "sandwiches", "name": "Sandwiches", "blurb": "Wrapped and ready to go.", "items": [] },
+    { "id": "sides", "name": "Sides", "blurb": "For the table.", "items": [] },
+    { "id": "kids", "name": "Kids", "blurb": "Smaller portions for younger guests.", "items": [] },
+    { "id": "sauces", "name": "Sauces", "blurb": "Made in house.", "items": [] },
+    { "id": "beverages", "name": "Beverages", "blurb": "To round out the meal.", "items": [] }
+  ]
+}
