@@ -42,7 +42,7 @@ export default function HomePage() {
             <Photo src={home.hero.image} alt={home.hero.imageAlt} label="Hero: shawarma roasting over heat" className="kenburns caption-top h-full w-full" priority />
           )}
         </div>
-        <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(180deg,rgb(35_35_35/0.25)_0%,rgb(35_35_35/0.35)_45%,rgb(20_26_24/0.88)_100%)]" />
+        <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(180deg,rgb(35_35_35/0.35)_0%,rgb(35_35_35/0.55)_40%,rgb(20_26_24/0.92)_100%)] md:bg-[linear-gradient(90deg,rgb(20_26_24/0.85)_0%,rgb(20_26_24/0.55)_45%,rgb(35_35_35/0.15)_100%),linear-gradient(180deg,transparent_50%,rgb(20_26_24/0.6)_100%)]" />
         <div className="container-site relative pb-16 pt-32 md:pb-24">
           <span className="eyebrow rise">{home.hero.eyebrow}</span>
           <h1 id="hero-heading" className="rise rise-1 max-w-[12ch] text-display font-normal tracking-[0.05em] text-ivory">{home.hero.headline}</h1>

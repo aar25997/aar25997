@@ -35,11 +35,21 @@ export function Picture({ data, alt, label, className = '', sizes = '100vw', pri
       className={`h-full w-full object-cover ${className}`}
     />
   );
-  if (!data.srcSet) return img;
-  return (
+  const media = data.srcSet ? (
     <picture className="contents">
       <source type="image/webp" srcSet={data.srcSet} sizes={sizes} />
       {img}
     </picture>
+  ) : img;
+  // Reference/mood images (public/images/reference/) are always labeled, so they can
+  // never be mistaken for NEFRA's own food or restaurant photography.
+  if (!data.src.includes('/images/reference/')) return media;
+  return (
+    <span className="relative block h-full w-full" data-placeholder="reference-photo">
+      {media}
+      <span className="absolute left-3 top-3 z-10 rounded-pill bg-charcoal/85 px-2.5 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-ivory">
+        Reference image
+      </span>
+    </span>
   );
 }

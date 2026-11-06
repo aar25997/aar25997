@@ -32,9 +32,7 @@
   --color-transparent: transparent;
   --color-current: currentColor;
 
-  /* Typography (faces loaded by next/font in app/layout.tsx) */
-  --font-display: var(--font-cinzel), "Trajan Pro", Georgia, serif;
-  --font-sans: var(--font-inter), Arial, sans-serif;
+  /* Typography: font families are in the @theme inline block below */
   --text-display: clamp(2.75rem, 8vw, 6rem);
   --text-display--line-height: 1.02;
   --text-h1: clamp(2.3rem, 5.6vw, 4.25rem);
@@ -59,6 +57,13 @@
 
   /* Breakpoints: sm 40rem (640px), md 54rem (864px: mobile nav), lg 64rem, xl 80rem */
   --breakpoint-md: 54rem;
+}
+
+/* Font tokens reference next/font variables, so they resolve where the font classes
+   are applied (inline = utilities use var(--font-cinzel) directly). */
+@theme inline {
+  --font-display: var(--font-cinzel), "Trajan Pro", Georgia, serif;
+  --font-sans: var(--font-inter), Arial, sans-serif;
 }
 
 /* ---------- Base ---------- */
