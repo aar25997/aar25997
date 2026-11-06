@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nefra</title>
+  <!-- TODO: replace with a real one-sentence description of Nefra -->
+  <meta name="description" content="Nefra — [one-sentence description of what Nefra does].">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!--
+    PLACEHOLDER CONTENT
+    Everything in [square brackets] is placeholder text. Replace it with
+    real information about Nefra before publishing.
+  -->
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="Nefra home">
+        <img src="assets/logo.svg" alt="" width="32" height="32">
+        <span>Nefra</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="nav-menu" class="nav-menu">
+        <a href="#about">About</a>
+        <a href="#services">What we do</a>
+        <a href="#process">How it works</a>
+        <a href="#contact" class="btn btn-small">Get in touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="eyebrow">[Tagline — e.g. your category or market]</p>
+        <h1>[Headline: the one thing Nefra does better than anyone.]</h1>
+        <p class="lead">[One or two sentences explaining who Nefra is for and the problem it solves.]</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn">Get in touch</a>
+          <a href="#services" class="btn btn-ghost">Learn more</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container two-col">
+        <div>
+          <p class="eyebrow">About Nefra</p>
+          <h2>[Short statement of your mission]</h2>
+        </div>
+        <div class="prose">
+          <p>[Who you are, when and why Nefra started, and what drives the team.]</p>
+          <p>[What makes Nefra different: your approach, values or expertise.]</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section section-alt">
+      <div class="container">
+        <p class="eyebrow">What we do</p>
+        <h2>[Services or products overview]</h2>
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">01</div>
+            <h3>[Service or product one]</h3>
+            <p>[A sentence describing the benefit to the customer.]</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">02</div>
+            <h3>[Service or product two]</h3>
+            <p>[A sentence describing the benefit to the customer.]</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">03</div>
+            <h3>[Service or product three]</h3>
+            <p>[A sentence describing the benefit to the customer.]</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="section">
+      <div class="container">
+        <p class="eyebrow">How it works</p>
+        <h2>[From first contact to results]</h2>
+        <ol class="steps">
+          <li><h3>[Step one]</h3><p>[e.g. Tell us what you need.]</p></li>
+          <li><h3>[Step two]</h3><p>[e.g. We put together a plan.]</p></li>
+          <li><h3>[Step three]</h3><p>[e.g. We deliver and support you.]</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="contact" class="section section-cta">
+      <div class="container two-col">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Let's talk.</h2>
+          <p class="lead">[Invite visitors to reach out and say how quickly you respond.]</p>
+          <ul class="contact-list">
+            <li><strong>Email:</strong> <a href="mailto:hello@example.com">[hello@example.com]</a></li>
+            <li><strong>Location:</strong> [City, Country]</li>
+          </ul>
+        </div>
+        <!-- The form opens the visitor's email app. Swap the action for a form
+             service (Formspree, Netlify Forms, etc.) to collect messages directly. -->
+        <form class="contact-form" id="contact-form" novalidate>
+          <label>Name<input name="name" type="text" autocomplete="name" required></label>
+          <label>Email<input name="email" type="email" autocomplete="email" required></label>
+          <label>Message<textarea name="message" rows="4" required></textarea></label>
+          <button class="btn" type="submit">Send message</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>&copy; <span id="year"></span> Nefra. All rights reserved.</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
