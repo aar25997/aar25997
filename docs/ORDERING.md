@@ -1,6 +1,6 @@
 # Online ordering integration plan
 
-NEFRA hasn't chosen between Toast, Clover and SpotOn yet, so the website doesn't depend on any of them. Every Order button gets its destination from one place, `lib/ordering.mjs`, which reads `content/ordering.json` and each location's `orderUrl`. Choosing or switching provider is a content change, not a rebuild of the site.
+NEFRA hasn't chosen between Toast, Clover and SpotOn yet, so the website doesn't depend on any of them. Every Order button gets its destination from one place, `lib/ordering.ts`, which reads `content/ordering.json` and each location's `orderUrl`. Choosing or switching provider is a content change, not a rebuild of the site.
 
 ## Recommendation: link to the provider's hosted ordering page, don't embed it
 

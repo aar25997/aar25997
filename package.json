@@ -2,15 +2,31 @@
   "name": "nefra-website",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=18" },
+  "engines": {
+    "node": ">=20.9"
+  },
   "scripts": {
-    "build": "node build.mjs",
-    "preview": "node build.mjs && python3 -m http.server 8080 --directory dist",
+    "dev": "next dev",
+    "build": "next build",
+    "preview": "next build && npx serve@14.2.4 out",
+    "typecheck": "tsc --noEmit",
     "images": "node scripts/optimize-images.mjs",
     "photos": "node scripts/add-photos.mjs",
     "cms": "npx decap-server"
   },
+  "dependencies": {
+    "next": "16.4.2",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "server-only": "^0.0.1"
+  },
   "devDependencies": {
-    "sharp": "^0.34.5"
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "22.19.1",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "sharp": "0.34.5",
+    "tailwindcss": "4.3.3",
+    "typescript": "5.9.3"
   }
 }

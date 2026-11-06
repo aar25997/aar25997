@@ -1,5 +1,5 @@
-// Generates responsive WebP versions of every photo in src/assets/img and writes
-// src/assets/img/manifest.json, which the build uses for srcset + width/height.
+// Generates responsive WebP versions of every photo in public/images and writes
+// public/images/manifest.json, which the site uses for srcset + width/height.
 //   npm install        (installs sharp, a dev dependency)
 //   npm run images     (run after adding or replacing photos)
 // Originals are kept; upload high-quality JPG/PNG files (about 2400px wide is plenty).
@@ -17,7 +17,9 @@ try {
 }
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
-const IMG = path.join(ROOT, 'src/assets/img');
+const PUBLIC = path.join(ROOT, 'public');
+const IMG = path.join(PUBLIC, 'images');
+fs.mkdirSync(IMG, { recursive: true });
 const WIDTHS = [480, 960, 1600, 2400];
 const GENERATED = /-\d+w\.webp$/;
 
@@ -28,14 +30,14 @@ const walk = (dir) =>
 const manifest = {};
 for (const file of walk(IMG)) {
   if (!/\.(jpe?g|png|webp)$/i.test(file) || GENERATED.test(file)) continue;
-  const rel = path.relative(path.join(ROOT, 'src'), file).split(path.sep).join('/');
+  const rel = path.relative(PUBLIC, file).split(path.sep).join('/');
   const meta = await sharp(file).metadata();
   const variants = [];
   for (const w of WIDTHS.filter((w) => w < meta.width).concat(meta.width <= 2400 ? [meta.width] : [])) {
     const out = file.replace(/\.[^.]+$/, `-${w}w.webp`);
     if (!fs.existsSync(out) || fs.statSync(out).mtimeMs < fs.statSync(file).mtimeMs)
       await sharp(file).rotate().resize({ width: w }).webp({ quality: 78 }).toFile(out);
-    variants.push({ src: '/' + path.relative(path.join(ROOT, 'src'), out).split(path.sep).join('/'), width: w });
+    variants.push({ src: '/' + path.relative(PUBLIC, out).split(path.sep).join('/'), width: w });
   }
   manifest[rel] = { width: meta.width, height: meta.height, variants };
   console.log(`  ${rel}: ${variants.map((v) => v.width).join(', ')}`);

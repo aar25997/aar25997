@@ -9,7 +9,6 @@
     "Egyptian"
   ],
   "siteUrl": "",
-  "basePath": "/",
   "logo": "",
   "email": "",
   "phone": "",
@@ -60,27 +59,24 @@
       "path": "/contact/"
     }
   ],
-  "newsletterEndpoint": "",
-  "contactEndpoint": "",
-  "cateringEnabled": false,
+  "announcement": {
+    "enabled": true,
+    "text": "Coming soon to Sterling, Virginia",
+    "linkLabel": "Get opening updates",
+    "linkUrl": "#signup"
+  },
+  "forms": {
+    "newsletterEndpoint": "",
+    "contactEndpoint": ""
+  },
+  "features": {
+    "catering": false,
+    "events": false,
+    "giftCards": false,
+    "rewards": false
+  },
   "analytics": {
     "ga4MeasurementId": "",
     "googleSiteVerification": ""
-  },
-  "hero": {
-    "image": "",
-    "imageAlt": "",
-    "video": "",
-    "poster": ""
-  },
-  "images": {
-    "philosophy": {
-      "src": "",
-      "alt": ""
-    },
-    "story": {
-      "src": "",
-      "alt": ""
-    }
   }
 }

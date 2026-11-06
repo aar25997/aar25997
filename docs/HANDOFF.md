@@ -2,48 +2,49 @@
 
 ## Architecture, and why
 
-A static site generated from content files, edited through **Decap CMS**, a free, open-source admin at `/admin/` that saves changes to the Git repository. The host rebuilds the site automatically after each save.
-
-This was chosen over Webflow, WordPress or a custom React/Next.js app based on the brief's priorities:
+**Next.js (App Router) + TypeScript + Tailwind CSS**, built as a **static export**: every page is pre-rendered to plain HTML at build time and served from a CDN. Content lives in `content/` (JSON and Markdown) and is edited through **Decap CMS**, a free, open-source admin at `/admin/` that commits changes to the Git repository. The host rebuilds the site automatically after each save, in about a minute.
 
 | Priority | How this setup meets it |
 | --- | --- |
-| Ease of editing | Form-based CMS screens for locations, menu, stories, events and settings. No code changes for prices, items or new locations. |
-| Reliability | Plain HTML files served from a CDN. No server, database or plugins to patch or hack. |
-| Speed | No framework. Each page loads one CSS file and one small script. Images get responsive WebP versions. |
-| Ownership | Everything is files in a Git repository NEFRA owns. Hosting is free to low-cost and can be moved anytime. |
-| Cost | No CMS license or per-seat fees. Recurring costs are the domain, plus the email and ordering platforms NEFRA chooses anyway. |
+| Ease of editing | Form-based CMS screens for the homepage, menu, locations, standards, stories, events, ordering links and settings. No code changes for prices, items, hours or new locations. |
+| Reliability | Static files on a CDN: no server, database or plugins to patch or hack. |
+| Speed | Pre-rendered HTML, self-hosted fonts, responsive WebP images, very little JavaScript (only the mobile menu, menu filter, forms and small enhancements). |
+| SEO | Server-rendered HTML for every page, unique metadata, canonical URLs, sitemap, robots and Restaurant JSON-LD per location. |
+| Growth | Typed content models and reusable React components. New locations get their own page and structured data from data alone, and future pages (catering, events, gift cards, rewards) are already built behind switches. |
+| Ownership | Everything is files in a Git repository NEFRA owns. Hosting is free to low-cost and portable. |
 
-Trade-off: Webflow's visual editor is more polished for layout changes. Here, layout changes (new sections or page designs) need a developer, but everyday content (menu, hours, locations, events, stories, photos) doesn't. If NEFRA prefers Webflow, the content model below maps directly to Webflow CMS collections.
+Why Next.js rather than Webflow or WordPress: the master brief asks for Next.js, TypeScript and Tailwind, and it gives a component system that can grow with the brand. It can later move to server rendering (for example, a server-side email API or live POS menu sync) without a rewrite. The cost of that choice is that **layout changes need a developer**. Day-to-day content (menu, prices, hours, photos, stories, events, ordering links) doesn't, because it goes through the CMS.
 
 ## Content model (editable collections)
 
 | Collection | File | Fields |
 | --- | --- | --- |
+| Homepage | `content/home.json` | Every section's label, headline, copy and photo, including the hero image or video |
 | Locations | `content/locations.json` | Name, address, coordinates, Google Place ID, hours (with a "confirmed" switch), phone, status, ordering URL, parking, menu note, photos, SEO title and description |
 | Menu categories | `content/menu.json` → `categories` | ID, name, description, display order |
-| Menu items | `content/menu.json` → `items` | Name, description, price, photo and alt text, category, allergens, dietary tags, availability, locations, item ordering link |
-| Brand stories | `content/stories/*.md` | Title, heading, intro, story text, header photo, SEO title and description, published |
+| Menu items | `content/menu.json` → `items` | Name, description, price, photo and alt text, category, allergens, dietary tags, customization note, availability, locations, item ordering link, approved (draft vs final) |
+| Standards | `content/standards.json` | Each standard's title, text and status (commitment, being finalized, verified) |
+| Brand stories | `content/stories/*.md` | Title, heading, intro, header photo, sections (photo left/right, text, pull quote), SEO title and description, published |
 | Events and updates | `content/events/*.md` | Title, type, date and end date, summary, image, location, status (draft or published), details |
-| Site settings | `content/site.json` | Brand, social links, logo, navigation, footer links, contact details, form endpoints, analytics, homepage hero |
-| Ordering | `content/ordering.json` | Provider, mode, default URL, tracking, catering, gift card and family meal links |
+| Site settings | `content/site.json` | Brand, social links, logo, navigation, footer links, contact details, announcement bar, form endpoints, future-page switches, analytics |
+| Ordering | `content/ordering.json` | Provider, mode, default URL, tracking, catering, gift card, family meal and rewards links |
 | Instagram highlights | `content/social.json` | Curated posts (image, alt text, link) |
 
 ## Content editing setup (one time)
 
 1. Create a GitHub organization or account **owned by NEFRA** and move this repository into it.
-2. Connect the repository to a host. Netlify, Cloudflare Pages and Vercel all work: build command `node build.mjs`, output directory `dist`.
+2. Connect the repository to a host. Netlify, Cloudflare Pages and Vercel all work: build command `npm run build`, output directory `out`.
 3. Turn on CMS login:
-   - **Netlify (simplest):** enable Identity and Git Gateway, then change `backend.name` to `git-gateway` in `src/admin/config.yml`.
+   - **Netlify (simplest):** enable Identity and Git Gateway, then change `backend.name` to `git-gateway` in `public/admin/config.yml`.
    - **Other hosts:** keep `backend.name: github` and set up a GitHub OAuth app for Decap.
-4. Set `backend.repo`, `site_url` and `display_url` in `src/admin/config.yml`.
+4. Set `backend.repo`, `site_url` and `display_url` in `public/admin/config.yml`.
 5. Invite editors. They log in at `https://YOUR-DOMAIN/admin/`.
 
-To edit locally without logging in, run `npm run cms` in one terminal and `npm run preview` in another, then open `http://localhost:8080/admin/`.
+To edit locally without logging in, run `npm run cms` in one terminal and `npm run dev` in another, then open `http://localhost:3000/admin/index.html`.
 
 ## Photos
 
-Upload high-quality originals (JPG or PNG, about 2,400px wide) through the CMS, and always fill in the alt text. Then a developer runs `npm install && npm run images` once (or adds it to the host's build command as `npm ci && npm run images && node build.mjs`). This creates 480 to 2,400px WebP versions and records sizes, so phones download small files and pages don't jump while loading.
+Upload high-quality originals (JPG or PNG, about 2,400px wide) through the CMS, and always fill in the alt text. Then a developer runs `npm run images` (or sets the host's build command to `npm run images && npm run build`). This creates 480 to 2,400px WebP versions and records sizes, so phones download small files and pages don't jump while loading.
 
 ## SEO and analytics checklist
 

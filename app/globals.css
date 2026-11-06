@@ -1,0 +1,179 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   NEFRA design system
+   Layout concept: an editorial restaurant site. Full-bleed photography,
+   generous ivory space, emerald bands for brand moments, charcoal for
+   evening and visit content; gold appears only as hairlines and small details.
+
+   Palette distribution target: 40% ivory, 30% emerald, 15% charcoal,
+   10% stone, 5% gold.
+
+   Contrast (WCAG 2.2 AA): charcoal/ivory 14.3, muted/ivory 6.6, walnut/ivory 7.2,
+   emerald/ivory 7.4, stone/emerald 5.0, gold/charcoal 5.1.
+   Gold FAILS as text on ivory (2.8) and emerald (2.6), so it is decoration only
+   there. Text in gold is allowed on charcoal only.
+   ========================================================================== */
+
+@theme {
+  /* Only NEFRA colors exist as utilities (bg-emerald, text-walnut...). */
+  --color-*: initial;
+  --color-emerald: #0E5A4F;
+  --color-emerald-deep: #0A463D;
+  --color-walnut: #6B4A32;
+  --color-charcoal: #232323;
+  --color-gold: #B08D57;
+  --color-stone: #D7C9B6;
+  --color-ivory: #F7F4EE;
+  --color-sand: #E9E1D6;
+  --color-white: #FFFFFF;
+  --color-muted: #5E554B;
+  --color-error: #A3402F;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  /* Typography (faces loaded by next/font in app/layout.tsx) */
+  --font-display: var(--font-cinzel), "Trajan Pro", Georgia, serif;
+  --font-sans: var(--font-inter), Arial, sans-serif;
+  --text-display: clamp(2.75rem, 8vw, 6rem);
+  --text-display--line-height: 1.02;
+  --text-h1: clamp(2.3rem, 5.6vw, 4.25rem);
+  --text-h1--line-height: 1.08;
+  --text-h2: clamp(1.85rem, 3.8vw, 3rem);
+  --text-h2--line-height: 1.12;
+  --text-h3: 1.25rem;
+  --text-h3--line-height: 1.3;
+  --text-lead: clamp(1.1rem, 1.6vw, 1.3rem);
+  --text-lead--line-height: 1.65;
+  --text-label: 0.75rem;
+  --text-label--letter-spacing: 0.2em;
+
+  /* Spacing, radius, motion */
+  --spacing-section: clamp(4.5rem, 9vw, 8rem);
+  --spacing-gutter: clamp(1rem, 4vw, 2.5rem);
+  --container-site: 75rem;
+  --container-prose: 42rem;
+  --radius-card: 0.5rem;
+  --radius-pill: 999px;
+  --ease-brand: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  /* Breakpoints: sm 40rem (640px), md 54rem (864px: mobile nav), lg 64rem, xl 80rem */
+  --breakpoint-md: 54rem;
+}
+
+/* ---------- Base ---------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-h) + 4rem);
+    scroll-padding-bottom: calc(var(--bottom-bar-h) + 1rem);
+    -webkit-text-size-adjust: 100%;
+    --header-h: 4.5rem;
+    --bottom-bar-h: 0px;
+  }
+  body {
+    @apply bg-ivory font-sans text-charcoal antialiased;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+  }
+  h1, h2, h3 {
+    @apply font-display;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+  ::selection { background: var(--color-stone); color: var(--color-charcoal); }
+
+  /* Focus: 3px outline that contrasts with its background (WCAG 2.4.7 / 1.4.11) */
+  :focus-visible { outline: 3px solid var(--color-emerald); outline-offset: 3px; border-radius: 2px; }
+  .on-dark :focus-visible { outline-color: var(--color-ivory); }
+  main:focus { outline: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+}
+
+/* ---------- Components ---------- */
+@layer components {
+  .container-site { @apply mx-auto w-full max-w-site px-gutter; }
+
+  /* Small uppercase label above headings */
+  .eyebrow { @apply mb-4 block font-sans text-label font-semibold uppercase text-walnut; }
+  .on-dark .eyebrow { @apply text-stone; }
+  .eyebrow-gold { @apply text-gold; } /* charcoal backgrounds only */
+
+  /* Thin gold rule used to open sections */
+  .rule-gold { @apply block h-px w-12 bg-gold; }
+
+  /* Buttons: 48px tall touch targets */
+  .btn {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-card border px-6 font-sans text-[0.8rem] font-semibold uppercase tracking-[0.14em] no-underline transition duration-300 ease-brand;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { @apply border-emerald bg-emerald text-ivory hover:border-emerald-deep hover:bg-emerald-deep; }
+  .btn-outline { @apply border-emerald bg-transparent text-emerald hover:bg-emerald hover:text-ivory; }
+  .btn-light { @apply border-ivory bg-ivory text-emerald hover:border-white hover:bg-white; }
+  .btn-outline-light { @apply border-ivory/60 bg-transparent text-ivory hover:border-ivory hover:bg-ivory/10; }
+  .btn-sm { @apply min-h-10 px-4 text-[0.72rem]; }
+
+  /* Text link with arrow and gold underline */
+  .link-arrow {
+    @apply inline-flex items-center gap-2 border-b border-gold pb-1 font-sans text-[0.78rem] font-semibold uppercase tracking-[0.16em] text-emerald no-underline transition-colors hover:text-walnut;
+  }
+  .link-arrow::after { content: "→"; transition: transform 0.3s var(--ease-brand); }
+  .link-arrow:hover::after { transform: translateX(4px); }
+  .on-dark .link-arrow { @apply text-ivory hover:text-stone; }
+
+  /* Photo placeholder: marks every spot that still needs real NEFRA photography.
+     Search the code for data-placeholder="photo" to find them all. */
+  .photo-placeholder {
+    @apply relative flex items-end overflow-hidden text-ivory/80;
+    background:
+      radial-gradient(120% 80% at 20% 10%, rgb(176 141 87 / 0.35), transparent 55%),
+      radial-gradient(90% 70% at 90% 100%, rgb(14 90 79 / 0.55), transparent 60%),
+      linear-gradient(160deg, #7A5639 0%, #4E3524 45%, #1E2B27 100%);
+  }
+  .photo-placeholder::before { content: ""; position: absolute; inset: 12px; border: 1px solid rgb(176 141 87 / 0.45); pointer-events: none; }
+  .photo-placeholder > span { @apply relative m-6 text-[0.68rem] uppercase tracking-[0.18em]; }
+  .photo-placeholder.caption-top { @apply items-start justify-end; }
+
+  /* Long-form text */
+  .prose-nefra { @apply max-w-prose text-[1.1rem] leading-[1.8]; }
+  .prose-nefra p { @apply mb-5 text-muted; }
+  .prose-nefra h2 { @apply mt-12 mb-4 text-[clamp(1.5rem,3vw,2rem)]; }
+  .prose-nefra h3 { @apply mt-8 mb-3 text-h3; }
+  .prose-nefra a { @apply text-emerald underline underline-offset-4; }
+  .prose-nefra ul { @apply mb-5 list-disc pl-6 text-muted; }
+  .prose-nefra blockquote { @apply my-10 border-y border-gold py-8 text-center font-display text-[clamp(1.25rem,2.4vw,1.6rem)] text-walnut; }
+
+  /* Form fields */
+  .field-label { @apply mb-2 block text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-walnut; }
+  .field-input {
+    @apply min-h-12 w-full rounded-card border border-stone bg-ivory px-4 py-3 font-sans text-base text-charcoal transition;
+  }
+  .field-input:focus { @apply border-emerald outline-none; box-shadow: 0 0 0 3px rgb(14 90 79 / 0.18); }
+  .field-input[aria-invalid="true"] { @apply border-error; }
+}
+
+/* ---------- Motion: content is visible at rest; elements below the fold fade in ---------- */
+@layer utilities {
+  .reveal-pending { opacity: 0; transform: translateY(18px); }
+  .reveal-in { opacity: 1; transform: none; transition: opacity 0.9s var(--ease-brand), transform 0.9s var(--ease-brand); }
+  .rise { animation: rise 1.1s var(--ease-brand) both; }
+  .rise-1 { animation-delay: 0.1s; }
+  .rise-2 { animation-delay: 0.22s; }
+  .rise-3 { animation-delay: 0.34s; }
+  .rise-4 { animation-delay: 0.46s; }
+  @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+  @keyframes kenburns { from { transform: scale(1.06); } to { transform: scale(1); } }
+  .kenburns { animation: kenburns 2.4s var(--ease-brand) both; }
+  @media (prefers-reduced-motion: reduce) { .reveal-pending { opacity: 1; transform: none; } }
+}
+
+/* Mobile bottom bar spacing (only when ordering is live) */
+@media (max-width: 53.99rem) {
+  .has-bottom-bar { --bottom-bar-h: 4rem; padding-bottom: calc(var(--bottom-bar-h) + env(safe-area-inset-bottom)); }
+}

@@ -22,7 +22,7 @@ This lists every photo the website uses: where it appears, what to shoot, and th
 
 The website automatically makes smaller copies for phones, so deliver full quality.
 
-## Phase 1: needed before launch (10 photos)
+## Phase 1: needed before launch (13 photos)
 
 ### 1. Hero: `hero.jpg`
 - **Where:** full-width at the top of the homepage. Also used when the site is shared on social media or in messages.
@@ -42,33 +42,49 @@ The website automatically makes smaller copies for phones, so deliver full quali
   - *Bowls & plates*: a complete bowl or plate as served, with protein, sides, sauce and bread.
 - **Alt text:** describe the actual dish, e.g. "Egyptian falafel with tahini and fresh herbs".
 
-### 6. Philosophy: `philosophy.jpg`
-- **Where:** homepage section "Food as It Was Meant to Be".
-- **Shot:** close-up of raw ingredients. Herbs, tomatoes, onions, fava beans or chickpeas, spices, a bowl of tahini, on walnut or stone. Texture-rich and natural.
+### 6. Introduction: `intro.jpg`
+- **Where:** homepage "A Return to Real Nourishment", beside the intro text.
+- **Shot:** an editorial table scene with two or three dishes, bread and sauces on walnut or stone, hands reaching in.
 - **Framing:** **vertical 4:5**.
+- **Alt text:** "A table set with NEFRA dishes"
+
+### 7. Philosophy: `philosophy.jpg`
+- **Where:** homepage "Food as It Was Meant to Be". A **full-width band**, with a text card overlapping its lower-right corner.
+- **Shot:** a close-up of raw ingredients: herbs, tomatoes, onions, fava beans or chickpeas, spices, a bowl of tahini. Texture-rich and natural.
+- **Framing:** **very wide 21:9 on desktop**. Phones show a 4:5 slice from the middle and tablets 16:9, so keep the subject centered and the lower-right quarter simple.
 - **Alt text:** "Fresh herbs, vegetables and tahini on the NEFRA prep counter"
 
-### 7. Craft: `story-home.jpg`
-- **Where:** homepage section "A Return to What Matters".
+### 8. Craft: `story-home.jpg`
+- **Where:** homepage "A Vision Rooted in Something Greater".
 - **Shot:** hands at work, such as shaping falafel, stretching dough or carving. Faces optional; the craft is the subject.
 - **Framing:** **vertical 4:5**.
 - **Alt text:** "Hands preparing food in the NEFRA kitchen"
 
-### 8. Founder: `founder.jpg`
-- **Where:** Our Story page, after the opening paragraphs.
+### 9. Community: `community.jpg`
+- **Where:** homepage "More Than Food. A Place to Connect.", as a tall photo beside two Instagram tiles.
+- **Shot:** guests sharing a meal: a family, friends or coworkers at a table. Real interaction, warm light. Get model releases.
+- **Framing:** **vertical 2:3**.
+- **Alt text:** "Guests sharing a meal at NEFRA"
+
+### 10. Founder: `founder.jpg`
+- **Where:** Our Story page, in "The Journey Behind NEFRA".
 - **Shot:** an environmental portrait of the founder in the kitchen or dining room. Natural, not corporate: working, tasting or talking. Warm light.
-- **Framing:** **horizontal 16:9**, founder off-center.
+- **Framing:** **vertical 4:5**, founder off-center.
 - **Alt text:** "[Founder's name], founder of NEFRA, in the kitchen". Put the real name in `photos/photos.json`.
 
-### 9–10. Location: `location-sterling-1.jpg`, `location-sterling-2.jpg`
+### 11. Our Story header and sections: `story-hero.jpg`, `story-1.jpg`, `story-3.jpg`
+- **Where:** the Our Story page header (`story-hero.jpg`), and the photo beside each story section. `story-1.jpg` goes with "Why NEFRA was created" (ingredients) and `story-3.jpg` with "Inspired by the tables of history" (shawarma on the spit). `founder.jpg` fills section 2.
+- **Framing:** **vertical 4:5**.
+
+### 12–13. Location: `location-sterling-1.jpg`, `location-sterling-2.jpg`
 - **Where:** photo 1 appears on the homepage "Visit" section (square crop), the Locations page card (wide crop) and the Sterling page. Photo 2 appears on the Sterling page.
 - **Shot 1:** the dining room with warm lighting and guests, showing the emerald, walnut and stone finishes. Keep the subject centered, because this photo is cropped both square and wide.
 - **Shot 2:** the storefront or entrance from the street, so people recognize it when they arrive.
 - **Framing:** **horizontal 3:2**.
 - **Before the restaurant is finished:** skip these. The site shows tasteful placeholders until then. Don't use renderings unless they're clearly labeled as renderings.
 
-## Phase 1, nice to have: Instagram highlights `instagram-1.jpg` … `instagram-8.jpg`
-- **Where:** the Community grid on the homepage (shows 4–8).
+## Phase 1, nice to have: Instagram highlights `instagram-1.jpg`, `instagram-2.jpg`
+- **Where:** the two square tiles beside the community photo on the homepage.
 - **Shot:** your best posts from @nefrahouse, such as behind-the-scenes, build-out progress, food, team.
 - **Framing:** **square 1:1**.
 - **Links:** add each post's link in `photos/photos.json` so tapping a photo opens that post.
@@ -92,7 +108,7 @@ The counter, open kitchen, seating and details.
 
 ## Logo files (from the designer, not the photographer)
 - `logo.svg`: the official NEFRA wordmark in **ivory/white**, for the emerald header and charcoal footer. Vector SVG, text converted to outlines.
-- A square icon version for the browser tab (favicon): send it to the developer to replace `src/assets/img/favicon.svg`.
+- A square icon version for the browser tab (favicon): send it to the developer to replace `public/favicon.svg`.
 
 ## Adding photos to the site
 
@@ -106,4 +122,4 @@ The counter, open kitchen, seating and details.
    ```
 3. Run `npm install` (first time only), then `npm run photos`.
 
-The script copies each photo into the site, connects it to the right spot, creates phone-sized versions and rebuilds. Files with unrecognized names are listed and skipped. You can also upload photos one at a time through the CMS at `/admin/` instead.
+The script copies each photo into `public/images/photos/`, connects it to the right spot in `content/`, and creates phone-sized versions. Run `npm run dev` to see the result. Files with unrecognized names are listed and skipped. You can also upload photos one at a time through the CMS at `/admin/` instead.

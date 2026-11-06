@@ -1,0 +1,50 @@
+{
+  "eyebrow": "Our Standards",
+  "heading": "Quality Is Not a Trend. It's Our Foundation.",
+  "lead": "These are the commitments behind every plate we serve. Where a standard depends on suppliers and recipes we're still finalizing, we say so, and we'll publish the details as they're confirmed.",
+  "items": [
+    {
+      "id": "ingredients",
+      "title": "Ingredients",
+      "body": "We choose every ingredient on purpose: whole, recognizable foods, selected for quality and flavor. We would rather pay more for something good than serve something we can't stand behind.",
+      "status": "commitment"
+    },
+    {
+      "id": "oils",
+      "title": "Cooking oils",
+      "body": "We intend to cook without industrial seed oils, using traditional cooking fats wherever our preparation allows. As our recipes and suppliers are finalized, we'll publish exactly which oils we use, dish by dish.",
+      "status": "in-progress"
+    },
+    {
+      "id": "meat",
+      "title": "Meat sourcing",
+      "body": "We're seeking ethically raised meats from suppliers whose practices we understand. When a specific claim applies to a product we buy, such as grass-fed beef, we'll state it on the menu. When it doesn't, we won't.",
+      "status": "in-progress"
+    },
+    {
+      "id": "preparation",
+      "title": "Traditional preparation",
+      "body": "Shawarma roasted slowly on the vertical spit. Falafel made the way Egyptian kitchens have made it for generations. Recipes tested and refined until they're right, not just fast.",
+      "status": "commitment"
+    },
+    {
+      "id": "freshness",
+      "title": "Freshness",
+      "body": "Our sauces, falafel and proteins are prepared in our own kitchen throughout the day.",
+      "status": "commitment"
+    },
+    {
+      "id": "transparency",
+      "title": "Transparency",
+      "body": "Ask us anything about what's in your food. We'll tell you, and if we don't know yet, we'll find out. Ingredient and allergen details will be published with our final menu.",
+      "status": "commitment"
+    },
+    {
+      "id": "hospitality",
+      "title": "Hospitality",
+      "body": "Great food is only half of it. We want every guest, whether a family, a professional on a lunch break or a neighbor, to feel welcomed and looked after.",
+      "status": "commitment"
+    }
+  ],
+  "note": "NEFRA does not make medical or nutrition claims. Allergen information will be published with our final menu; please tell our team about any allergies before ordering."
+}

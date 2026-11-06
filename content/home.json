@@ -1,0 +1,73 @@
+{
+  "hero": {
+    "eyebrow": "Mediterranean · Sterling, Virginia",
+    "headline": "Flavors of Civilization",
+    "subheadline": "Rooted in tradition. Crafted for today.",
+    "copy": "Rediscover the beauty of real ingredients, timeless flavors, and food prepared with purpose.",
+    "image": "",
+    "imageAlt": "",
+    "video": "",
+    "poster": ""
+  },
+  "intro": {
+    "eyebrow": "Welcome to NEFRA",
+    "headline": "A Return to Real Nourishment",
+    "body": "At NEFRA, we believe food should be as honest as it is flavorful. Inspired by the culinary traditions that have connected civilizations for generations, we bring real ingredients, thoughtful preparation, and exceptional hospitality together in a modern dining experience.",
+    "image": "",
+    "imageAlt": ""
+  },
+  "featured": {
+    "eyebrow": "The Menu",
+    "headline": "Crafted with Purpose. Served with Flavor."
+  },
+  "philosophy": {
+    "eyebrow": "Our Philosophy",
+    "headline": "Food as It Was Meant to Be",
+    "body": "Before shortcuts became the standard, food was rooted in ingredients, craftsmanship, and connection. NEFRA is our way of bringing those values forward.",
+    "image": "",
+    "imageAlt": ""
+  },
+  "standards": {
+    "eyebrow": "The NEFRA Standards",
+    "headline": "Quality Is Our Foundation",
+    "pillars": [
+      {
+        "title": "Real Ingredients",
+        "body": "Thoughtfully selected ingredients that prioritize quality and flavor."
+      },
+      {
+        "title": "Thoughtful Sourcing",
+        "body": "A commitment to transparency and responsible ingredient selection."
+      },
+      {
+        "title": "Time-Honored Craft",
+        "body": "Traditional culinary methods brought into the modern kitchen."
+      },
+      {
+        "title": "Genuine Hospitality",
+        "body": "More than a meal. An experience built around people and community."
+      }
+    ]
+  },
+  "story": {
+    "eyebrow": "Our Story",
+    "headline": "A Vision Rooted in Something Greater",
+    "body": [
+      "NEFRA grew out of a passion for food, health, culinary tradition and community, and a belief that a quick meal can still be made with care.",
+      "Our founder spent years developing a concept that brings thoughtful sourcing and memorable flavor together in a modern fast-casual restaurant, where everyone is welcome at the table."
+    ],
+    "image": "",
+    "imageAlt": ""
+  },
+  "location": {
+    "eyebrow": "Visit",
+    "headline": "Our First Home — Sterling, Virginia"
+  },
+  "community": {
+    "eyebrow": "Community",
+    "headline": "More Than Food. A Place to Connect.",
+    "body": "The best meals are shared. NEFRA is being built as a gathering place for families, neighbors, coworkers and friends, and we're sharing the journey to opening day as we go.",
+    "image": "",
+    "imageAlt": ""
+  }
+}
